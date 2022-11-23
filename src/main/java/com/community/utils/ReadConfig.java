@@ -6,15 +6,16 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
 
+import com.community.constants.FrameworkConstants;
+
 public class ReadConfig {
-	
-	static Properties prop=new Properties();
+static Properties prop=new Properties();
 	
 	static 
 	{
 		FileInputStream fis;
 		try {
-			fis = new FileInputStream("./Configuration/config.properties");
+			fis = new FileInputStream(FrameworkConstants.getConfigPath());
 			prop.load(fis);
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
@@ -33,5 +34,4 @@ public class ReadConfig {
 		
 	}
 	
-
 }
