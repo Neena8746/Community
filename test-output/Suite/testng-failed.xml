@@ -5,8 +5,10 @@
     <classes>
       <class name="com.community.tests.LoginTest">
         <methods>
+          <include name="createReport"/>
           <include name="teardown"/>
           <include name="setUp"/>
+          <include name="flushReport"/>
           <include name="login"/>
         </methods>
       </class> <!-- com.community.tests.LoginTest -->
