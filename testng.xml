@@ -3,6 +3,7 @@
 <suite name="Suite">
 <listeners>
 <listener class-name="com.community.listeners.ListenerClass"></listener>
+<listener class-name="com.community.listeners.MethodInterceptor"></listener>
 </listeners>
   <test thread-count="2" name="Test" parallel="methods">
     <classes>

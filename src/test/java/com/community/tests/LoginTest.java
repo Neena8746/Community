@@ -22,5 +22,14 @@ public final class LoginTest extends BaseClass {
 
 	}
     
+    @Test
+   void logintest() throws Exception {
+    	
+    	CommunityLoginPage cl=new CommunityLoginPage();
+    	cl.enterUserName(ReadConfig.get(ConfigEnums.USERNAME)).enterPassword(ReadConfig.get(ConfigEnums.PASSWORD)).clickLogin();
+    	Assertions.assertThat(cl.getTitle()).isEqualTo("Home - Cisco Community");
+
+	}
+    
    
 }

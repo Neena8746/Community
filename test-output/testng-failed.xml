@@ -3,6 +3,7 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="com.community.listeners.ListenerClass"/>
+    <listener class-name="com.community.listeners.MethodInterceptor"/>
   </listeners>
   <test thread-count="5" parallel="methods" name="Test(failed)">
     <classes>
@@ -10,6 +11,7 @@
         <methods>
           <include name="teardown"/>
           <include name="setUp"/>
+          <include name="logintest"/>
           <include name="login"/>
         </methods>
       </class> <!-- com.community.tests.LoginTest -->
