@@ -16,21 +16,18 @@ public class CommunityLoginPage extends Commons {
 	private final By textboxPassword=By.xpath("//input[@id='lia-password' and @type='password']");
 	private final By buttonLogin=By.id("submitContext_0");
 
-	public CommunityLoginPage enterUserName(String name) {
+	public CommunityLoginPage enterUserName(String name) throws Exception {
 		sendKeys(textboxUsername,name,Waits.PRESENCE,"username");
-//		ExtentLogger.pass("username entered");
 		return this;
 	}
 
-	public CommunityLoginPage enterPassword(String pw) {
+	public CommunityLoginPage enterPassword(String pw) throws Exception {
 		sendKeys(textboxPassword,pw,Waits.PRESENCE,"password");
-//		ExtentLogger.pass("password entered");
 		return this;
 	}
 
-	public void clickLogin() {
+	public void clickLogin() throws Exception {
 		click(buttonLogin,Waits.CLICKABLE,"login");
-//		ExtentLogger.pass("Login clicked");
 	}
 
 	public String getTitle() {

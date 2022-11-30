@@ -9,16 +9,17 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.community.constants.FrameworkConstants;
 
 public class ExtentReport {
 
 	static ExtentReports extent;
 
-	public static void initReports()
+	public static void initReports() throws Exception
 	{
 		if(Objects.isNull(extent)) {
 			extent=new ExtentReports();
-			ExtentSparkReporter spark = new ExtentSparkReporter("index.html");
+			ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getExtentreportfilepath());
 			extent.attachReporter(spark);	
 			spark.config().setTheme(Theme.STANDARD);
 			spark.config().setDocumentTitle("Community Report");
@@ -31,14 +32,14 @@ public class ExtentReport {
 		ReportManger.setTest(test);
 	}
 
-	public static void flushReport() throws IOException {
+	public static void flushReport() throws Exception {
 		if(Objects.nonNull(extent)) {
 //			ReportManger.unloadTest();
 			extent.flush();
 
 		}
 		//To open the Extent report by default
-		Desktop.getDesktop().browse(new File("index.html").toURI());
+		Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentreportfilepath()).toURI());
 	}
 
 }

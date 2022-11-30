@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 
 import com.community.driver.Driver;
 import com.community.driver.DriverManager;
+import com.community.enums.ConfigEnums;
 import com.community.reports.ExtentReport;
 import com.community.utils.ReadConfig;
 public class BaseClass {
@@ -20,7 +21,7 @@ public class BaseClass {
 	protected void setUp() throws Exception {
 		
 		Driver.initDriver();
-		DriverManager.getDriver().get(ReadConfig.getKey("url"));
+		DriverManager.getDriver().get(ReadConfig.get(ConfigEnums.URL));
 		DriverManager.getDriver().manage().window().maximize();
 		
 	}

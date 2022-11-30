@@ -22,17 +22,19 @@ public class Commons {
 
 	}
 
-	protected void sendKeys(By by,String value,Waits wait,String elementname) {
+	protected void sendKeys(By by,String value,Waits wait,String elementname) throws Exception {
 		ele=ExplicitWaitFactory.explictwait(wait, by);
 		ele.sendKeys(value);
-		ExtentLogger.pass(value+" is entered in "+elementname);
+		ExtentLogger.pass(value+" is entered in "+elementname,true);
 	}
 
-	protected void click(By by,Waits wait,String elementname) {
+	protected void click(By by,Waits wait,String elementname) throws Exception {
 
 		ele=ExplicitWaitFactory.explictwait(wait, by);
 		ele.sendKeys(Keys.RETURN);
-		ExtentLogger.pass(elementname+" is clicked");
+		
+		ExtentLogger.pass(elementname+" is clicked",true);
+		
 	}
 
 

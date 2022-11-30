@@ -1,6 +1,7 @@
 package com.community.listeners;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
@@ -14,13 +15,21 @@ import com.community.reports.ExtentReport;
 public class ListenerClass implements ITestListener,ISuiteListener {
 
 	public void onStart(ISuite suite) {
-		ExtentReport.initReports();
+		try {
+			ExtentReport.initReports();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void onFinish(ISuite suite) {
 		try {
 			ExtentReport.flushReport();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -31,12 +40,26 @@ public class ListenerClass implements ITestListener,ISuiteListener {
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		ExtentLogger.pass(result.getMethod().getMethodName()+" is passed");
+		try {
+			ExtentLogger.pass(result.getMethod().getMethodName()+" is passed",true);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void onTestFailure(ITestResult result) {
-		ExtentLogger.fail(result.getMethod().getMethodName()+" is failed");
-		//attach screen shot
+		
+			try {
+				ExtentLogger.fail(result.getMethod().getMethodName()+" is failed",true);
+				//To see the logs in report
+				ExtentLogger.fail(result.getThrowable().toString());
+				ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 	}
 
 	public void onTestSkipped(ITestResult result) {
