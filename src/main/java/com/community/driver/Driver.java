@@ -4,8 +4,9 @@ import java.util.Objects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.community.utils.ReadConfig;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -15,10 +16,19 @@ public class Driver  {
 
 	
 
-	public static void initDriver() throws Exception {
+	public static void initDriver(String browser) throws Exception {
 		if(Objects.isNull(DriverManager.getDriver())) {
-			WebDriverManager.chromedriver().setup();
-        	driver = new ChromeDriver();
+			if(browser.equalsIgnoreCase("chrome")) {
+				WebDriverManager.chromedriver().setup();
+	        	driver = new ChromeDriver();
+			}else if(browser.equalsIgnoreCase("firefox")) {
+				WebDriverManager.firefoxdriver().setup();
+				driver=new FirefoxDriver();
+			}
+			else if(browser.equalsIgnoreCase("opera")) {
+				WebDriverManager.operadriver().setup();
+				driver=new OperaDriver();			}
+			
         	DriverManager.setDriver(driver);
         	
 		}

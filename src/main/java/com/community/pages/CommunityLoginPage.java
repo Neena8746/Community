@@ -1,13 +1,9 @@
 package com.community.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 
 import com.community.driver.DriverManager;
 import com.community.enums.Waits;
-import com.community.reports.ExtentLogger;
-import com.community.reports.ExtentReport;
-import com.community.reports.ReportManger;
 
 public class CommunityLoginPage extends Commons {
 
@@ -15,6 +11,7 @@ public class CommunityLoginPage extends Commons {
 	private final By textboxUsername=By.id("lia-login");
 	private final By textboxPassword=By.xpath("//input[@id='lia-password' and @type='password']");
 	private final By buttonLogin=By.id("submitContext_0");
+	private final By homepage=By.xpath("//*[contains(@class,'CommunityPage')]");
 
 	public CommunityLoginPage enterUserName(String name) throws Exception {
 		sendKeys(textboxUsername,name,Waits.PRESENCE,"username");
@@ -26,12 +23,17 @@ public class CommunityLoginPage extends Commons {
 		return this;
 	}
 
-	public void clickLogin() throws Exception {
-		click(buttonLogin,Waits.CLICKABLE,"login");
+	public CommunityHomePage clickLogin() throws Exception {
+		clickByKeys(buttonLogin,Waits.CLICKABLE,"login");
+		return new CommunityHomePage();
 	}
 
 	public String getTitle() {
 		return DriverManager.getDriver().getTitle();
+	}
+	
+	public void homepageLoad() {
+		waitUntilHomepageLoad(homepage,Waits.PRESENCE,"homepage");
 	}
 
 	//	public void clickLoginThroughAction() {

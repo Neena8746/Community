@@ -13,7 +13,7 @@ import com.community.utils.ExcelUtils;
 public class MethodInterceptor implements IMethodInterceptor{
 
 	public List<IMethodInstance> intercept(List<IMethodInstance> methods, ITestContext context) {
-		List<Map<String,String>>list=ExcelUtils.getTestData();
+		List<Map<String,String>>list=ExcelUtils.getTestData("Runner");
 		List<IMethodInstance>result=new ArrayList<IMethodInstance>();
 		
 		for(int i=0;i<methods.size();i++) {

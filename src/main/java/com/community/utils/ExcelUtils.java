@@ -1,7 +1,6 @@
 package com.community.utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +16,7 @@ import com.community.constants.FrameworkConstants;
 
 public class ExcelUtils {
 
-	public static List<Map<String,String>> getTestData(){
+	public static List<Map<String,String>> getTestData(String sheetname){
 
 		List<Map<String,String>>list=null;
 		FileInputStream fi=null;
@@ -25,7 +24,7 @@ public class ExcelUtils {
 		try {
 			fi=new FileInputStream(FrameworkConstants.getExcelpath());
 			XSSFWorkbook wb=new XSSFWorkbook(fi);
-			XSSFSheet sh=wb.getSheet("Runner");
+			XSSFSheet sh=wb.getSheet(sheetname);
 
 			Map<String,String>map=null;
 			list=new ArrayList<Map<String,String>>();

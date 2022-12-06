@@ -5,9 +5,10 @@
 <listener class-name="com.community.listeners.ListenerClass"></listener>
 <listener class-name="com.community.listeners.MethodInterceptor"></listener>
 </listeners>
-  <test thread-count="2" name="Test" parallel="methods">
+  <test thread-count="2" name="Test" >
     <classes>
       <class name="com.community.tests.LoginTest"/>
+      <class name="com.community.tests.CommunityconversationTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

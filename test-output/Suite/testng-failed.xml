@@ -5,16 +5,15 @@
     <listener class-name="com.community.listeners.ListenerClass"/>
     <listener class-name="com.community.listeners.MethodInterceptor"/>
   </listeners>
-  <test thread-count="5" parallel="methods" name="Test(failed)">
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.community.tests.LoginTest">
+      <class name="com.community.tests.CommunityconversationTest">
         <methods>
           <include name="teardown"/>
+          <include name="startConversation"/>
           <include name="setUp"/>
-          <include name="logintest"/>
-          <include name="login"/>
         </methods>
-      </class> <!-- com.community.tests.LoginTest -->
+      </class> <!-- com.community.tests.CommunityconversationTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
