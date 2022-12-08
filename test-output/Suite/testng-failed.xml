@@ -10,7 +10,7 @@
       <class name="com.community.tests.CommunityconversationTest">
         <methods>
           <include name="teardown"/>
-          <include name="startConversation"/>
+          <include name="startConversation" invocation-numbers="0"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.community.tests.CommunityconversationTest -->
